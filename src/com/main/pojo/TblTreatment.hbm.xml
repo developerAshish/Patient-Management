@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 30, 2016 1:45:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblTreatment" table="tbl_treatment" catalog="patientmangement" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="summary" type="string">
+            <column name="Summary" length="65535" />
+        </property>
+        <property name="diagnosis" type="string">
+            <column name="diagnosis" length="65535" />
+        </property>
+        <property name="procedurePerformed" type="string">
+            <column name="ProcedurePerformed" length="65535" />
+        </property>
+        <property name="dateProcedure" type="date">
+            <column name="DateProcedure" length="10" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>
