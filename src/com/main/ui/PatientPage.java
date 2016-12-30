@@ -7,11 +7,12 @@ package com.main.ui;
 
 import com.main.model.ViewTableModel;
 import com.main.pojo.TblPatient;
-import com.main.services.SuperConnection;
+import com.main.services.PatientService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,21 +40,43 @@ public class PatientPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblInpatient = new javax.swing.JLabel();
+        btnInEntry = new javax.swing.JButton();
+        btnInEdit = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
+        btnTreatment = new javax.swing.JButton();
+        btntreatmentAdvice = new javax.swing.JButton();
+        btnOutEntry = new javax.swing.JButton();
+        btnOutTreatmentAdvice = new javax.swing.JButton();
+        btnOutTreatment = new javax.swing.JButton();
+        btnOutHistory = new javax.swing.JButton();
+        btnOutEdit = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableView = new javax.swing.JTable();
         panelSearch2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cmbFName2 = new javax.swing.JComboBox();
-        cmbPatientId2 = new javax.swing.JComboBox();
-        cmbLName2 = new javax.swing.JComboBox();
-        btnNewPatient2 = new javax.swing.JButton();
+        cmbFName = new javax.swing.JComboBox();
+        cmbPatientId = new javax.swing.JComboBox();
+        cmbLName = new javax.swing.JComboBox();
         btnSearch2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableView = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("PATIENT WINDOW");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,6 +93,207 @@ public class PatientPage extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton1.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton1.setText("NEW REGISTRATION");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("OUTPATIENT");
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        lblInpatient.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
+        lblInpatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInpatient.setText("INPATIENT");
+        lblInpatient.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        btnInEntry.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnInEntry.setText("ADD ENTRY");
+
+        btnInEdit.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnInEdit.setText("EDIT ENTRY");
+
+        btnHistory.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnHistory.setText("HISTORY");
+
+        btnTreatment.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnTreatment.setText("TREATMENT");
+        btnTreatment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTreatmentActionPerformed(evt);
+            }
+        });
+
+        btntreatmentAdvice.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btntreatmentAdvice.setText("TREATMENT ADVISE");
+        btntreatmentAdvice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntreatmentAdviceActionPerformed(evt);
+            }
+        });
+
+        btnOutEntry.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnOutEntry.setText("ADD ENTRY");
+
+        btnOutTreatmentAdvice.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnOutTreatmentAdvice.setText("TREATMENT ADVISE");
+        btnOutTreatmentAdvice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOutTreatmentAdviceActionPerformed(evt);
+            }
+        });
+
+        btnOutTreatment.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnOutTreatment.setText("TREATMENT");
+        btnOutTreatment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOutTreatmentActionPerformed(evt);
+            }
+        });
+
+        btnOutHistory.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnOutHistory.setText("HISTORY");
+
+        btnOutEdit.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnOutEdit.setText("EDIT ENTRY");
+        btnOutEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOutEditActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
+        jLabel2.setText("REPORTS");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        jButton2.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton2.setText("PRINT");
+
+        jButton3.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton4.setText("EXIT");
+
+        jButton5.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton5.setText("jButton5");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOutEntry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnInEntry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btntreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnInEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnOutEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnOutHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                            .addComponent(btnOutTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addComponent(lblInpatient, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(btnInEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnInEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btntreatmentAdvice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnOutEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnOutEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnOutHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnOutTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(64, 64, 64)
+                    .addComponent(lblInpatient, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(697, Short.MAX_VALUE)))
+        );
+
+        jPanel4.add(jPanel5);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        tableView.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        tableView.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableView);
+
         panelSearch2.setBackground(new java.awt.Color(255, 255, 255));
         panelSearch2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
 
@@ -82,24 +306,14 @@ public class PatientPage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel9.setText("PATIENT LAST NAME :");
 
-        cmbFName2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbFName2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
+        cmbFName.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbFName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
 
-        cmbPatientId2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbPatientId2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
+        cmbPatientId.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbPatientId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
 
-        cmbLName2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbLName2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
-
-        btnNewPatient2.setBackground(new java.awt.Color(0, 102, 102));
-        btnNewPatient2.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnNewPatient2.setText("NEW PATIENT");
-        btnNewPatient2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
-        btnNewPatient2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewPatient2ActionPerformed(evt);
-            }
-        });
+        cmbLName.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbLName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
 
         btnSearch2.setBackground(new java.awt.Color(0, 102, 102));
         btnSearch2.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
@@ -118,6 +332,7 @@ public class PatientPage extends javax.swing.JFrame {
             .addGroup(panelSearch2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelSearch2Layout.createSequentialGroup()
                         .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
@@ -125,13 +340,9 @@ public class PatientPage extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbLName2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbFName2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbPatientId2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelSearch2Layout.createSequentialGroup()
-                        .addComponent(btnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnNewPatient2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbLName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbFName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         panelSearch2Layout.setVerticalGroup(
@@ -139,55 +350,19 @@ public class PatientPage extends javax.swing.JFrame {
             .addGroup(panelSearch2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbPatientId2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbFName2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbFName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbLName2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbLName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNewPatient2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        tableView.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        tableView.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableView);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(panelSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -195,13 +370,22 @@ public class PatientPage extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(1, 1, 1))
+                .addGap(0, 0, 0)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSearch2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,21 +400,48 @@ public class PatientPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNewPatient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewPatient2ActionPerformed
-        new RegistrationPage(this, true).setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewPatient2ActionPerformed
-
     private void btnSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch2ActionPerformed
         // TODO add your handling code here:
-        SearchOperation(cmbPatientId.getSelectedItem().toString(),cmbFName.getSelectedItem().toString(),cmbLName.getSelectedItem().toString());
+        if ("-----".endsWith(cmbPatientId.getSelectedItem().toString())&&"-----".equals(cmbFName.getSelectedItem().toString())&&"-----".equals(cmbLName.getSelectedItem().toString())) {
+            SearchOperation(cmbPatientId.getSelectedItem().toString(),cmbFName.getSelectedItem().toString(),cmbLName.getSelectedItem().toString());
+        } else {
+            JOptionPane.showMessageDialog(this, "PLEASE SELECT AREA.");
+        }
     }//GEN-LAST:event_btnSearch2ActionPerformed
+
+    private void btntreatmentAdviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntreatmentAdviceActionPerformed
+        // TODO add your handling code here:
+        new TreatmentAdvisePage(this, true).setVisible(true);
+    }//GEN-LAST:event_btntreatmentAdviceActionPerformed
+
+    private void btnTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTreatmentActionPerformed
+        // TODO add your handling code here:
+        new TreatmentPage(this, true).setVisible(true);
+    }//GEN-LAST:event_btnTreatmentActionPerformed
+
+    private void btnOutTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutTreatmentActionPerformed
+        new TreatmentPage(this, true).setVisible(true);
+    }//GEN-LAST:event_btnOutTreatmentActionPerformed
+
+    private void btnOutTreatmentAdviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutTreatmentAdviceActionPerformed
+        // TODO add your handling code here:
+        new TreatmentAdvisePage(this, true).setVisible(true);
+    }//GEN-LAST:event_btnOutTreatmentAdviceActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnOutEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOutEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,54 +480,53 @@ public class PatientPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNewPatient;
-    private javax.swing.JButton btnNewPatient1;
-    private javax.swing.JButton btnNewPatient2;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnSearch1;
+    private javax.swing.JButton btnHistory;
+    private javax.swing.JButton btnInEdit;
+    private javax.swing.JButton btnInEntry;
+    private javax.swing.JButton btnOutEdit;
+    private javax.swing.JButton btnOutEntry;
+    private javax.swing.JButton btnOutHistory;
+    private javax.swing.JButton btnOutTreatment;
+    private javax.swing.JButton btnOutTreatmentAdvice;
     private javax.swing.JButton btnSearch2;
+    private javax.swing.JButton btnTreatment;
+    private javax.swing.JButton btntreatmentAdvice;
     private javax.swing.JComboBox cmbFName;
-    private javax.swing.JComboBox cmbFName1;
-    private javax.swing.JComboBox cmbFName2;
     private javax.swing.JComboBox cmbLName;
-    private javax.swing.JComboBox cmbLName1;
-    private javax.swing.JComboBox cmbLName2;
     private javax.swing.JComboBox cmbPatientId;
-    private javax.swing.JComboBox cmbPatientId1;
-    private javax.swing.JComboBox cmbPatientId2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel panelSearch;
-    private javax.swing.JPanel panelSearch1;
+    private javax.swing.JLabel lblInpatient;
     private javax.swing.JPanel panelSearch2;
     private javax.swing.JTable tableView;
     // End of variables declaration//GEN-END:variables
 
-    private void SearchOperation(String toString, String toString0, String toString1) {
+    private void SearchOperation(String patientId, String fName, String Lname) {
+        ArrayList list=PatientService.listSearchByIDNAME(patientId,fName, Lname);
+        tableView.setModel(new ViewTableModel(list));
     }
 
     private void loadViewTable() {
         try {
-            List<TblPatient> list= SuperConnection.listEntity(new TblPatient());
+            List<TblPatient> list = PatientService.listEntity(new TblPatient());
             tableView.setModel(new ViewTableModel((ArrayList<TblPatient>) list));
         } catch (Exception ex) {
             Logger.getLogger(PatientPage.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
 }

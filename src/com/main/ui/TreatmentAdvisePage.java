@@ -6,7 +6,7 @@
 package com.main.ui;
 
 import com.main.pojo.TblTreatmentadvise;
-import com.main.services.SuperConnection;
+import com.main.services.PatientService;
 import javax.swing.JOptionPane;
 
 /**
@@ -206,7 +206,7 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                 treatmentadvise.setDoses(txtDoses.getText());
                 treatmentadvise.setDuration(txtDuration.getText());
                 treatmentadvise.setTiming(txtTiming.getText());
-                SuperConnection.saveEntity(treatmentadvise);
+                PatientService.saveEntity(treatmentadvise);
                 JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "STARTUP THE DATABASE CONNECTION");
