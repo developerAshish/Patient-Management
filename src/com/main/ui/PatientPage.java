@@ -26,6 +26,9 @@ public class PatientPage extends javax.swing.JFrame {
     public PatientPage() {
         initComponents();
         loadViewTable();
+        loadComboPatientID();
+        loadComboFirstName();
+        loadComboLName();
     }
 
     /**
@@ -42,24 +45,18 @@ public class PatientPage extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnNewReg = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblInpatient = new javax.swing.JLabel();
-        btnInEntry = new javax.swing.JButton();
-        btnInEdit = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
         btnTreatment = new javax.swing.JButton();
         btntreatmentAdvice = new javax.swing.JButton();
-        btnOutEntry = new javax.swing.JButton();
         btnOutTreatmentAdvice = new javax.swing.JButton();
         btnOutTreatment = new javax.swing.JButton();
-        btnOutHistory = new javax.swing.JButton();
-        btnOutEdit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableView = new javax.swing.JTable();
         panelSearch2 = new javax.swing.JPanel();
@@ -98,25 +95,26 @@ public class PatientPage extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jButton1.setText("NEW REGISTRATION");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnNewReg.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnNewReg.setText("NEW REGISTRATION");
+        btnNewReg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnNewReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewRegActionPerformed(evt);
+            }
+        });
 
+        jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OUTPATIENT");
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        lblInpatient.setBackground(new java.awt.Color(0, 102, 102));
         lblInpatient.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
         lblInpatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInpatient.setText("INPATIENT");
         lblInpatient.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        btnInEntry.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnInEntry.setText("ADD ENTRY");
-
-        btnInEdit.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnInEdit.setText("EDIT ENTRY");
 
         btnHistory.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnHistory.setText("HISTORY");
@@ -137,9 +135,6 @@ public class PatientPage extends javax.swing.JFrame {
             }
         });
 
-        btnOutEntry.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnOutEntry.setText("ADD ENTRY");
-
         btnOutTreatmentAdvice.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnOutTreatmentAdvice.setText("TREATMENT ADVISE");
         btnOutTreatmentAdvice.addActionListener(new java.awt.event.ActionListener() {
@@ -156,37 +151,20 @@ public class PatientPage extends javax.swing.JFrame {
             }
         });
 
-        btnOutHistory.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnOutHistory.setText("HISTORY");
-
-        btnOutEdit.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnOutEdit.setText("EDIT ENTRY");
-        btnOutEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOutEditActionPerformed(evt);
-            }
-        });
-
+        jLabel2.setBackground(new java.awt.Color(0, 102, 102));
         jLabel2.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("REPORTS");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jButton2.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jButton2.setText("PRINT");
 
-        jButton3.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jButton4.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jButton4.setText("EXIT");
 
-        jButton5.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jButton5.setText("jButton5");
+        jButton1.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jButton1.setText("HISTORY");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -195,74 +173,51 @@ public class PatientPage extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnOutEntry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInEntry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btntreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnInEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnOutEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnOutHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnOutTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblInpatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnNewReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btntreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(btnHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(btnTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(btnOutTreatment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addComponent(lblInpatient, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(btnInEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnInEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(50, 50, 50)
+                .addComponent(btnNewReg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblInpatient, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(btnTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(btntreatmentAdvice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnOutEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnOutEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnOutHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
                 .addComponent(btnOutTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnOutTreatmentAdvice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(64, 64, 64)
-                    .addComponent(lblInpatient, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(697, Short.MAX_VALUE)))
         );
 
         jPanel4.add(jPanel5);
@@ -318,7 +273,7 @@ public class PatientPage extends javax.swing.JFrame {
         btnSearch2.setBackground(new java.awt.Color(0, 102, 102));
         btnSearch2.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnSearch2.setText("SEARCH");
-        btnSearch2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
+        btnSearch2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnSearch2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearch2ActionPerformed(evt);
@@ -401,7 +356,7 @@ public class PatientPage extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -409,10 +364,10 @@ public class PatientPage extends javax.swing.JFrame {
 
     private void btnSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch2ActionPerformed
         // TODO add your handling code here:
-        if ("-----".endsWith(cmbPatientId.getSelectedItem().toString())&&"-----".equals(cmbFName.getSelectedItem().toString())&&"-----".equals(cmbLName.getSelectedItem().toString())) {
-            SearchOperation(cmbPatientId.getSelectedItem().toString(),cmbFName.getSelectedItem().toString(),cmbLName.getSelectedItem().toString());
-        } else {
+        if ("-----".equals(cmbPatientId.getSelectedItem().toString()) && "-----".equals(cmbFName.getSelectedItem().toString()) && "-----".equals(cmbLName.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(this, "PLEASE SELECT AREA.");
+        } else {
+            SearchOperation(cmbPatientId.getSelectedItem().toString(), cmbFName.getSelectedItem().toString(), cmbLName.getSelectedItem().toString());
         }
     }//GEN-LAST:event_btnSearch2ActionPerformed
 
@@ -435,13 +390,10 @@ public class PatientPage extends javax.swing.JFrame {
         new TreatmentAdvisePage(this, true).setVisible(true);
     }//GEN-LAST:event_btnOutTreatmentAdviceActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnNewRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRegActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void btnOutEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOutEditActionPerformed
+        new RegistrationPage(this, true).setVisible(true);
+    }//GEN-LAST:event_btnNewRegActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,11 +433,7 @@ public class PatientPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHistory;
-    private javax.swing.JButton btnInEdit;
-    private javax.swing.JButton btnInEntry;
-    private javax.swing.JButton btnOutEdit;
-    private javax.swing.JButton btnOutEntry;
-    private javax.swing.JButton btnOutHistory;
+    private javax.swing.JButton btnNewReg;
     private javax.swing.JButton btnOutTreatment;
     private javax.swing.JButton btnOutTreatmentAdvice;
     private javax.swing.JButton btnSearch2;
@@ -496,9 +444,7 @@ public class PatientPage extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbPatientId;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
@@ -515,8 +461,8 @@ public class PatientPage extends javax.swing.JFrame {
     private javax.swing.JTable tableView;
     // End of variables declaration//GEN-END:variables
 
-    private void SearchOperation(String patientId, String fName, String Lname) {
-        ArrayList list=PatientService.listSearchByIDNAME(patientId,fName, Lname);
+    private void SearchOperation(String patientId, String fName, String lname) {
+        ArrayList<TblPatient> list = PatientService.listSearchALL(patientId, fName, lname);
         tableView.setModel(new ViewTableModel(list));
     }
 
@@ -528,5 +474,26 @@ public class PatientPage extends javax.swing.JFrame {
             Logger.getLogger(PatientPage.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void loadComboPatientID() {
+        List<Integer> list = PatientService.loadComboID();
+        for (Integer list1 : list) {
+            cmbPatientId.addItem(list1);
+        }
+    }
+
+    private void loadComboFirstName() {
+        List<String> list = PatientService.loadComboFirstName();
+        for (String list1 : list) {
+            cmbFName.addItem(list1);
+        }
+    }
+
+    private void loadComboLName() {
+        List<String> list = PatientService.loadComboLastName();
+        for (String list1 : list) {
+            cmbLName.addItem(list1);
+        }
     }
 }

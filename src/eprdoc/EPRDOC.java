@@ -5,6 +5,10 @@
  */
 package eprdoc;
 
+import com.main.controller.ApplicationManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ashish
@@ -15,7 +19,12 @@ public class EPRDOC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            // TODO code application logic here
+            new ApplicationManager().start();
+        } catch (Exception ex) {
+            Logger.getLogger(EPRDOC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

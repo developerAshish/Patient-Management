@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated Dec 30, 2016 1:45:05 PM by Hibernate Tools 4.3.1
+// Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,33 +13,31 @@ public class TblPatient  implements java.io.Serializable {
      private Integer id;
      private String firstName;
      private String lastName;
-     private String address;
-     private String phoneNo;
+     private String mobile;
      private String age;
      private String sex;
-     private String spouseName;
-     private String spouseAge;
+     private String address;
+     private String spousename;
+     private String spouseage;
+     private Date dateaddmission;
      private String reference;
-     private Date dateAddmission;
-     private Date dateDischarge;
-     private Date timeAddmission;
+     private String timeaddmission;
 
     public TblPatient() {
     }
 
-    public TblPatient(String firstName, String lastName, String address, String phoneNo, String age, String sex, String spouseName, String spouseAge, String reference, Date dateAddmission, Date dateDischarge, Date timeAddmission) {
+    public TblPatient(String firstName, String lastName, String mobile, String age, String sex, String address, String spousename, String spouseage, Date dateaddmission, String reference, String timeaddmission) {
        this.firstName = firstName;
        this.lastName = lastName;
-       this.address = address;
-       this.phoneNo = phoneNo;
+       this.mobile = mobile;
        this.age = age;
        this.sex = sex;
-       this.spouseName = spouseName;
-       this.spouseAge = spouseAge;
+       this.address = address;
+       this.spousename = spousename;
+       this.spouseage = spouseage;
+       this.dateaddmission = dateaddmission;
        this.reference = reference;
-       this.dateAddmission = dateAddmission;
-       this.dateDischarge = dateDischarge;
-       this.timeAddmission = timeAddmission;
+       this.timeaddmission = timeaddmission;
     }
    
     public Integer getId() {
@@ -63,19 +61,12 @@ public class TblPatient  implements java.io.Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public String getAddress() {
-        return this.address;
+    public String getMobile() {
+        return this.mobile;
     }
     
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    public String getPhoneNo() {
-        return this.phoneNo;
-    }
-    
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
     public String getAge() {
         return this.age;
@@ -91,19 +82,33 @@ public class TblPatient  implements java.io.Serializable {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public String getSpouseName() {
-        return this.spouseName;
+    public String getAddress() {
+        return this.address;
     }
     
-    public void setSpouseName(String spouseName) {
-        this.spouseName = spouseName;
+    public void setAddress(String address) {
+        this.address = address;
     }
-    public String getSpouseAge() {
-        return this.spouseAge;
+    public String getSpousename() {
+        return this.spousename;
     }
     
-    public void setSpouseAge(String spouseAge) {
-        this.spouseAge = spouseAge;
+    public void setSpousename(String spousename) {
+        this.spousename = spousename;
+    }
+    public String getSpouseage() {
+        return this.spouseage;
+    }
+    
+    public void setSpouseage(String spouseage) {
+        this.spouseage = spouseage;
+    }
+    public Date getDateaddmission() {
+        return this.dateaddmission;
+    }
+    
+    public void setDateaddmission(Date dateaddmission) {
+        this.dateaddmission = dateaddmission;
     }
     public String getReference() {
         return this.reference;
@@ -112,26 +117,12 @@ public class TblPatient  implements java.io.Serializable {
     public void setReference(String reference) {
         this.reference = reference;
     }
-    public Date getDateAddmission() {
-        return this.dateAddmission;
+    public String getTimeaddmission() {
+        return this.timeaddmission;
     }
     
-    public void setDateAddmission(Date dateAddmission) {
-        this.dateAddmission = dateAddmission;
-    }
-    public Date getDateDischarge() {
-        return this.dateDischarge;
-    }
-    
-    public void setDateDischarge(Date dateDischarge) {
-        this.dateDischarge = dateDischarge;
-    }
-    public Date getTimeAddmission() {
-        return this.timeAddmission;
-    }
-    
-    public void setTimeAddmission(Date timeAddmission) {
-        this.timeAddmission = timeAddmission;
+    public void setTimeaddmission(String timeaddmission) {
+        this.timeaddmission = timeaddmission;
     }
 
 

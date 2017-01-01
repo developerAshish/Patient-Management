@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 30, 2016 1:45:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblPatient" table="tbl_patient" catalog="patientmangement" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -14,11 +14,8 @@
         <property name="lastName" type="string">
             <column name="LastName" length="65535" />
         </property>
-        <property name="address" type="string">
-            <column name="Address" length="65535" />
-        </property>
-        <property name="phoneNo" type="string">
-            <column name="phone_no" length="65535" />
+        <property name="mobile" type="string">
+            <column name="mobile" length="65535" />
         </property>
         <property name="age" type="string">
             <column name="age" length="65535" />
@@ -26,23 +23,23 @@
         <property name="sex" type="string">
             <column name="sex" length="65535" />
         </property>
-        <property name="spouseName" type="string">
-            <column name="spouseName" length="65535" />
+        <property name="address" type="string">
+            <column name="address" length="65535" />
         </property>
-        <property name="spouseAge" type="string">
-            <column name="spouseAge" length="65535" />
+        <property name="spousename" type="string">
+            <column name="spousename" length="65535" />
+        </property>
+        <property name="spouseage" type="string">
+            <column name="spouseage" length="65535" />
+        </property>
+        <property name="dateaddmission" type="date">
+            <column name="dateaddmission" length="10" />
         </property>
         <property name="reference" type="string">
             <column name="reference" length="65535" />
         </property>
-        <property name="dateAddmission" type="date">
-            <column name="DateAddmission" length="10" />
-        </property>
-        <property name="dateDischarge" type="date">
-            <column name="DateDischarge" length="10" />
-        </property>
-        <property name="timeAddmission" type="time">
-            <column name="TimeAddmission" length="8" />
+        <property name="timeaddmission" type="string">
+            <column name="timeaddmission" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

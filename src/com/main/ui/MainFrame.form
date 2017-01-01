@@ -111,7 +111,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButton9" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="jButton12" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="btnPatientModule" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -146,7 +146,7 @@
                           <Component id="jButton6" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                           <Component id="jButton7" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                           <Component id="jButton11" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
-                          <Component id="jButton12" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="btnPatientModule" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
@@ -235,7 +235,7 @@
                   <Font name="Verdana" size="8" style="2"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/main/icon/nurse-icon (1).png"/>
+                  <Image iconType="3" name="/com/main/icon/nurse.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="NURSE MODULE"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -321,7 +321,6 @@
                   <Image iconType="3" name="/com/main/icon/money.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="FINANICAL ACCOUNT"/>
-                <Property name="actionCommand" type="java.lang.String" value="FINANICAL ACCOUNT"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -329,7 +328,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton12">
+            <Component class="javax.swing.JButton" name="btnPatientModule">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="8" style="2"/>
@@ -344,6 +343,9 @@
                 <Property name="verticalAlignment" type="int" value="3"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientModuleActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

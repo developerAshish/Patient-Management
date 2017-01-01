@@ -16,7 +16,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-       
+
     }
 
     /**
@@ -42,7 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        btnPatientModule = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PAITENT MANAGEMENT");
@@ -61,7 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGap(0, 130, Short.MAX_VALUE)
         );
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -108,7 +108,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton6.setFont(new java.awt.Font("Verdana", 2, 8)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/nurse-icon (1).png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/nurse.png"))); // NOI18N
         jButton6.setText("NURSE MODULE");
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
@@ -160,21 +160,25 @@ public class MainFrame extends javax.swing.JFrame {
         jButton11.setFont(new java.awt.Font("Verdana", 2, 8)); // NOI18N
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/money.png"))); // NOI18N
         jButton11.setText("FINANICAL ACCOUNT");
-        jButton11.setActionCommand("FINANICAL ACCOUNT");
         jButton11.setBorderPainted(false);
         jButton11.setContentAreaFilled(false);
         jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton12.setFont(new java.awt.Font("Verdana", 2, 8)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/Patients-icon.png"))); // NOI18N
-        jButton12.setText("PATIENT MODULE");
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPatientModule.setFont(new java.awt.Font("Verdana", 2, 8)); // NOI18N
+        btnPatientModule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/Patients-icon.png"))); // NOI18N
+        btnPatientModule.setText("PATIENT MODULE");
+        btnPatientModule.setBorderPainted(false);
+        btnPatientModule.setContentAreaFilled(false);
+        btnPatientModule.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPatientModule.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnPatientModule.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPatientModule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientModuleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,7 +208,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnPatientModule, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
@@ -231,7 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPatientModule, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -258,6 +262,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void btnPatientModuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientModuleActionPerformed
+        // TODO add your handling code here:
+        new PatientPage().setVisible(true);
+    }//GEN-LAST:event_btnPatientModuleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,10 +304,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPatientModule;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -312,5 +321,4 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-    
 }

@@ -51,6 +51,8 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Treatment Advise  page");
 
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -61,6 +63,8 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 55, Short.MAX_VALUE)
         );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("DRUG NAME :");
@@ -92,18 +96,20 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         txtTiming.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtTiming.setText(" ");
 
+        btnReset.setBackground(new java.awt.Color(0, 102, 102));
         btnReset.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
+        btnReset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(0, 102, 102));
         btnSave.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
+        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -118,9 +124,9 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnSave)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReset))
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -162,8 +168,8 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                     .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset)
-                    .addComponent(btnSave))
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -178,7 +184,7 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -200,14 +206,14 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (txtDrug.getText().length() != 0 && txtGenericName.getText().length() != 0 && txtDoses.getText().length() != 0 && txtTiming.getText().length() != 0 && txtDuration.getText().length() != 0) {
             try {
-                TblTreatmentadvise treatmentadvise=new TblTreatmentadvise();
-                treatmentadvise.setDrugName(txtDrug.getText());
-                treatmentadvise.setGenericName(txtGenericName.getText());
-                treatmentadvise.setDoses(txtDoses.getText());
-                treatmentadvise.setDuration(txtDuration.getText());
-                treatmentadvise.setTiming(txtTiming.getText());
-                PatientService.saveEntity(treatmentadvise);
-                JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY");
+               TblTreatmentadvise treatmentadvise=new TblTreatmentadvise();
+               treatmentadvise.setDrugname(txtDrug.getText());
+               treatmentadvise.setGenericname(txtGenericName.getText());
+               treatmentadvise.setTiming(txtTiming.getText());
+               treatmentadvise.setDoses(txtDoses.getText());
+               treatmentadvise.setDuration(txtDuration.getText());
+               PatientService.saveEntity(treatmentadvise);
+               JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "STARTUP THE DATABASE CONNECTION");
             }

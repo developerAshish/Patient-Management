@@ -64,7 +64,7 @@ public class ViewTableModel implements TableModel {
                 System.out.println("patient = " + patient.getLastName());
                 return patient.getLastName();
             case 5:
-                return patient.getPhoneNo();
+                return patient.getMobile();
             case 6:
                 return patient.getAge();
             case 7:
@@ -74,9 +74,9 @@ public class ViewTableModel implements TableModel {
             case 9:
                 return patient.getReference();
             case 10:
-                return patient.getDateAddmission();
+                return patient.getDateaddmission();
             case 11:
-                return patient.getTimeAddmission();
+                return patient.getTimeaddmission();
         }
         return patient;
     }

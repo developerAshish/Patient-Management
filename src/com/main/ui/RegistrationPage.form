@@ -375,7 +375,7 @@
             <Property name="text" type="java.lang.String" value="RESET"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder roundedCorners="true">
+                <LineBorder roundedCorners="true" thickness="0">
                   <Color PropertyName="color" blue="66" green="66" red="0" type="rgb"/>
                 </LineBorder>
               </Border>
@@ -396,7 +396,7 @@
             <Property name="text" type="java.lang.String" value="SAVE"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder roundedCorners="true">
+                <LineBorder roundedCorners="true" thickness="0">
                   <Color PropertyName="color" blue="66" green="66" red="0" type="rgb"/>
                 </LineBorder>
               </Border>

@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated Dec 30, 2016 1:45:05 PM by Hibernate Tools 4.3.1
+// Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1
 
 
 
@@ -10,21 +10,21 @@ public class TblTreatmentadvise  implements java.io.Serializable {
 
 
      private Integer id;
-     private String drugName;
-     private String genericName;
+     private String drugname;
+     private String genericname;
      private String doses;
-     private String duration;
      private String timing;
+     private String duration;
 
     public TblTreatmentadvise() {
     }
 
-    public TblTreatmentadvise(String drugName, String genericName, String doses, String duration, String timing) {
-       this.drugName = drugName;
-       this.genericName = genericName;
+    public TblTreatmentadvise(String drugname, String genericname, String doses, String timing, String duration) {
+       this.drugname = drugname;
+       this.genericname = genericname;
        this.doses = doses;
-       this.duration = duration;
        this.timing = timing;
+       this.duration = duration;
     }
    
     public Integer getId() {
@@ -34,19 +34,19 @@ public class TblTreatmentadvise  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getDrugName() {
-        return this.drugName;
+    public String getDrugname() {
+        return this.drugname;
     }
     
-    public void setDrugName(String drugName) {
-        this.drugName = drugName;
+    public void setDrugname(String drugname) {
+        this.drugname = drugname;
     }
-    public String getGenericName() {
-        return this.genericName;
+    public String getGenericname() {
+        return this.genericname;
     }
     
-    public void setGenericName(String genericName) {
-        this.genericName = genericName;
+    public void setGenericname(String genericname) {
+        this.genericname = genericname;
     }
     public String getDoses() {
         return this.doses;
@@ -55,19 +55,19 @@ public class TblTreatmentadvise  implements java.io.Serializable {
     public void setDoses(String doses) {
         this.doses = doses;
     }
-    public String getDuration() {
-        return this.duration;
-    }
-    
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
     public String getTiming() {
         return this.timing;
     }
     
     public void setTiming(String timing) {
         this.timing = timing;
+    }
+    public String getDuration() {
+        return this.duration;
+    }
+    
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
 

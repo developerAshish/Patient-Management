@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated Dec 30, 2016 1:45:05 PM by Hibernate Tools 4.3.1
+// Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,20 +11,22 @@ public class TblTreatment  implements java.io.Serializable {
 
 
      private Integer id;
-     private String summary;
+     private String firstName;
+     private Date proceduredate;
+     private String procedureperform;
      private String diagnosis;
-     private String procedurePerformed;
-     private Date dateProcedure;
+     private String summary;
      private String comment;
 
     public TblTreatment() {
     }
 
-    public TblTreatment(String summary, String diagnosis, String procedurePerformed, Date dateProcedure, String comment) {
-       this.summary = summary;
+    public TblTreatment(String firstName, Date proceduredate, String procedureperform, String diagnosis, String summary, String comment) {
+       this.firstName = firstName;
+       this.proceduredate = proceduredate;
+       this.procedureperform = procedureperform;
        this.diagnosis = diagnosis;
-       this.procedurePerformed = procedurePerformed;
-       this.dateProcedure = dateProcedure;
+       this.summary = summary;
        this.comment = comment;
     }
    
@@ -35,12 +37,26 @@ public class TblTreatment  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getSummary() {
-        return this.summary;
+    public String getFirstName() {
+        return this.firstName;
     }
     
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public Date getProceduredate() {
+        return this.proceduredate;
+    }
+    
+    public void setProceduredate(Date proceduredate) {
+        this.proceduredate = proceduredate;
+    }
+    public String getProcedureperform() {
+        return this.procedureperform;
+    }
+    
+    public void setProcedureperform(String procedureperform) {
+        this.procedureperform = procedureperform;
     }
     public String getDiagnosis() {
         return this.diagnosis;
@@ -49,19 +65,12 @@ public class TblTreatment  implements java.io.Serializable {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-    public String getProcedurePerformed() {
-        return this.procedurePerformed;
+    public String getSummary() {
+        return this.summary;
     }
     
-    public void setProcedurePerformed(String procedurePerformed) {
-        this.procedurePerformed = procedurePerformed;
-    }
-    public Date getDateProcedure() {
-        return this.dateProcedure;
-    }
-    
-    public void setDateProcedure(Date dateProcedure) {
-        this.dateProcedure = dateProcedure;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
     public String getComment() {
         return this.comment;

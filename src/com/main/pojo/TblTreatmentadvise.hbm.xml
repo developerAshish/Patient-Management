@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 30, 2016 1:45:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblTreatmentadvise" table="tbl_treatmentadvise" catalog="patientmangement" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <property name="drugName" type="string">
-            <column name="DrugName" length="65535" />
+        <property name="drugname" type="string">
+            <column name="drugname" length="65535" />
         </property>
-        <property name="genericName" type="string">
-            <column name="GenericName" length="65535" />
+        <property name="genericname" type="string">
+            <column name="genericname" length="65535" />
         </property>
         <property name="doses" type="string">
-            <column name="Doses" length="65535" />
-        </property>
-        <property name="duration" type="string">
-            <column name="Duration" length="65535" />
+            <column name="doses" length="65535" />
         </property>
         <property name="timing" type="string">
-            <column name="Timing" length="65535" />
+            <column name="timing" length="65535" />
+        </property>
+        <property name="duration" type="string">
+            <column name="duration" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

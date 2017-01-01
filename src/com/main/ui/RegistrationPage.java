@@ -7,11 +7,8 @@ package com.main.ui;
 
 import com.main.pojo.TblPatient;
 import com.main.services.PatientService;
-import com.sun.org.apache.bcel.internal.generic.DADD;
 import java.sql.Time;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -142,7 +139,7 @@ public class RegistrationPage extends javax.swing.JDialog {
         btnReset.setBackground(new java.awt.Color(0, 102, 102));
         btnReset.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnReset.setText("RESET");
-        btnReset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
+        btnReset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
@@ -152,7 +149,7 @@ public class RegistrationPage extends javax.swing.JDialog {
         btnSave.setBackground(new java.awt.Color(0, 102, 102));
         btnSave.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnSave.setText("SAVE");
-        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
+        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -327,24 +324,24 @@ public class RegistrationPage extends javax.swing.JDialog {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        final String PHONE_REGEX = "^\\+([0-9\\-]?){9,11}[0-9]$";
+        final String PHONE_REGEX ="^[0-9, ]*$";
         final Pattern pattern = Pattern.compile(PHONE_REGEX);
         if (txtFName.getText().length() != 0 && txtLName.getText().length() != 0 && txtMobile.getText().length() != 0 && cmbSex.getSelectedIndex() != 0 && cmbAge.getSelectedIndex() != 0 && txtAddress.getText().length() != 0 && txtReference.getText().length() != 0 && txtDateAddmission.getText().length() != 0 && txtTimeAddmission.getText().length() != 0) {
             Matcher matcher = pattern.matcher(txtMobile.getText());
-            if (matcher.matches()) {
+            if (matcher.matches()&&txtTimeAddmission.getText().length()!=0 &&txtDateAddmission.getText().length()!=0) {
                 try {
                     TblPatient patient = new TblPatient();
                     patient.setFirstName(txtFName.getText());
                     patient.setLastName(txtLName.getText());
-                    patient.setPhoneNo(txtMobile.getText());
+                    patient.setMobile(txtMobile.getText());
                     patient.setAddress(txtAddress.getText());
                     patient.setSex(cmbSex.getSelectedItem().toString());
                     patient.setAge(cmbAge.getSelectedItem().toString());
-                    patient.setSpouseName(txtSpouseName.getText());
-                    patient.setSpouseAge(txtSpouseAge.getText());
+                    patient.setSpousename(txtSpouseName.getText());
+                    patient.setSpouseage(txtSpouseAge.getText());
                     patient.setReference(txtReference.getText());
-                    patient.setDateAddmission(new Date());
-                    patient.setTimeAddmission(new Time(new Date().getTime()));
+                    patient.setDateaddmission(new Date());
+                    patient.setTimeaddmission(Long.toString(new Date().getTime()));
                     PatientService.saveEntity(patient);
                     JOptionPane.showMessageDialog(this, " SAVE SUCCESSFULLY");
 
@@ -352,7 +349,7 @@ public class RegistrationPage extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, " PLEASE STARTUP DATABASE CONNECTION");
                 }
             } else {
-                lblVaildationMessage.setText(" WRONG PHONE NUMBER ENTERED.");
+                lblVaildationMessage.setText(" WRONG PHONE NUMBER ENTERED. OR DATE AND TIME NOT CORRECT");
             }
 
         }
@@ -368,9 +365,12 @@ public class RegistrationPage extends javax.swing.JDialog {
             txtMobile.setText("");
             txtReference.setText("");
             txtSpouseAge.setText("");
-            txtSpouseName.getText();
+            txtSpouseName.setText("");
             txtTimeAddmission.setText("");
+            cmbAge.setSelectedIndex(0);
+            cmbSex.setSelectedIndex(0);
             JOptionPane.showMessageDialog(this, " RESET SUCCESSFULLY.");
+            lblVaildationMessage.setText("");
         } else {
             JOptionPane.showMessageDialog(this, "FIELDS ALREADY BLANKS..");
         }
