@@ -28,6 +28,8 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x, y);
+        loadcomboDoses();
+        loadcomboDuration();
     }
 
     /**
@@ -52,11 +54,14 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         txtDrug = new javax.swing.JTextField();
         txtGenericName = new javax.swing.JTextField();
-        txtDoses = new javax.swing.JTextField();
-        txtDuration = new javax.swing.JTextField();
-        txtTiming = new javax.swing.JTextField();
         btnReset = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        cmbDoses = new javax.swing.JComboBox();
+        cmbDosestiming = new javax.swing.JComboBox();
+        cmbQuanlity = new javax.swing.JComboBox();
+        cmbtiming = new javax.swing.JComboBox();
+        cmbDays = new javax.swing.JComboBox();
+        cmbweek = new javax.swing.JComboBox();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -70,24 +75,24 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Treatment Advise  page");
+        setTitle("TREATMENT ADVICE");
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(0, 51, 102));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 2, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("TREATMENT ADVICE");
+        jLabel6.setText("PATIENT DETAIL PAGE->TREATMENT ADVICE");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -106,7 +111,7 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -133,15 +138,6 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         txtGenericName.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtGenericName.setText(" ");
 
-        txtDoses.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txtDoses.setText(" ");
-
-        txtDuration.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txtDuration.setText(" ");
-
-        txtTiming.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txtTiming.setText(" ");
-
         btnReset.setBackground(new java.awt.Color(0, 102, 102));
         btnReset.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         btnReset.setForeground(new java.awt.Color(0, 51, 102));
@@ -166,6 +162,33 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
             }
         });
 
+        cmbDoses.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbDoses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
+
+        cmbDosestiming.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbDosestiming.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "MORING", "AFTERNOON", "EVENING", "NIGHT" }));
+        cmbDosestiming.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbDosestimingItemStateChanged(evt);
+            }
+        });
+        cmbDosestiming.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbDosestimingMouseClicked(evt);
+            }
+        });
+
+        cmbQuanlity.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbQuanlity.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
+
+        cmbtiming.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbtiming.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "MORING", "AFTERNOON", "EVENING", "NIGHT" }));
+
+        cmbDays.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbDays.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
+
+        cmbweek.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "DAY", "WEEK", "MONTH", "YEAR" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -174,9 +197,9 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -185,12 +208,21 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGenericName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDoses, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTiming, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDrug, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDrug, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(cmbDoses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbDosestiming, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbQuanlity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cmbtiming, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtGenericName)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(cmbDays, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbweek, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(4, 4, 4)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -207,19 +239,22 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDoses, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDoses, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDosestiming, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbQuanlity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTiming, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbtiming, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDays, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbweek, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -254,24 +289,34 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        if (txtDrug.getText().length() != 0 && txtGenericName.getText().length() != 0 && txtDoses.getText().length() != 0 && txtTiming.getText().length() != 0 && txtDuration.getText().length() != 0) {
+        if (txtDrug.getText().length() != 0 && txtGenericName.getText().length() != 0 && cmbDoses.getSelectedIndex() != 0 && cmbDosestiming.getSelectedIndex() != 0 && cmbDays.getSelectedIndex() != 0 && cmbQuanlity.getSelectedIndex() != 0 && cmbweek.getSelectedIndex() != 0) {
             validation();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-        if (txtDrug.getText().length() != 0 && txtGenericName.getText().length() != 0 && txtDoses.getText().length() != 0 && txtTiming.getText().length() != 0 && txtDuration.getText().length() != 0) {
-            txtDoses.setText("");
-            txtDrug.setText("");
-            txtDuration.setText("");
-            txtGenericName.setText("");
-            txtTiming.setText("");
-            JOptionPane.showMessageDialog(this, "RESET SUCCESSFULLY...");
-        } else {
-            JOptionPane.showMessageDialog(this, "FIELD BLANKS..");
-        }
+        txtDrug.setText("");
+        txtGenericName.setText("");
+        cmbDays.setSelectedIndex(0);
+        cmbDoses.setSelectedIndex(0);
+        cmbDosestiming.setSelectedIndex(0);
+        cmbQuanlity.setSelectedIndex(0);
+        cmbtiming.setSelectedIndex(0);
+        cmbweek.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(this, "RESET SUCCESSFULLY...");
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void cmbDosestimingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDosestimingMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_cmbDosestimingMouseClicked
+
+    private void cmbDosestimingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDosestimingItemStateChanged
+        // TODO add your handling code here:
+        cmbtiming.setSelectedItem(cmbDosestiming.getSelectedItem());
+
+    }//GEN-LAST:event_cmbDosestimingItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -318,6 +363,12 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox cmbDays;
+    private javax.swing.JComboBox cmbDoses;
+    private javax.swing.JComboBox cmbDosestiming;
+    private javax.swing.JComboBox cmbQuanlity;
+    private javax.swing.JComboBox cmbtiming;
+    private javax.swing.JComboBox cmbweek;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -329,11 +380,8 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField txtDoses;
     private javax.swing.JTextField txtDrug;
-    private javax.swing.JTextField txtDuration;
     private javax.swing.JTextField txtGenericName;
-    private javax.swing.JTextField txtTiming;
     // End of variables declaration//GEN-END:variables
 
     private void validation() {
@@ -343,9 +391,10 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
                 TblTreatmentadvise treatmentadvise = new TblTreatmentadvise();
                 treatmentadvise.setDrugname(txtDrug.getText());
                 treatmentadvise.setGenericname(txtGenericName.getText());
-                treatmentadvise.setTiming(txtTiming.getText());
-                treatmentadvise.setDoses(txtDoses.getText());
-                treatmentadvise.setDuration(txtDuration.getText());
+                treatmentadvise.setTiming(cmbDosestiming.getSelectedItem().toString());
+                cmbtiming.setSelectedItem(cmbDosestiming);
+                treatmentadvise.setDoses(loadcomboDoses());
+                treatmentadvise.setDuration(loadcomboDuration());
                 PatientService.saveEntity(treatmentadvise);
                 JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY");
             } catch (Exception ex) {
@@ -356,9 +405,28 @@ public class TreatmentAdvisePage extends javax.swing.JDialog {
         }
     }
 
-     private Pattern validationfilterStringData() {
+    private Pattern validationfilterStringData() {
         final String StringData_Regex = "^[a-zA-Z]+$";
         final Pattern pattern = Pattern.compile(StringData_Regex);
         return pattern;
+    }
+
+    private String loadcomboDoses() {
+        String doses = "";
+        for (int i = 0; i < 40; i++) {
+            cmbQuanlity.addItem(i);
+            cmbDoses.addItem(i);
+        }
+        doses = cmbDoses.getSelectedItem().toString() + "/" + cmbDosestiming.getSelectedItem().toString() + "/" + cmbQuanlity.getSelectedItem().toString();
+        return doses;
+    }
+
+    private String loadcomboDuration() {
+        String string = "";
+        for (int i = 0; i < 30; i++) {
+            cmbDays.addItem(i);
+        }
+        string = cmbDays.getSelectedItem().toString() + "/" + cmbweek.getSelectedItem().toString();
+        return string;
     }
 }

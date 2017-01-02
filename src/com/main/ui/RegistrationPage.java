@@ -7,6 +7,7 @@ package com.main.ui;
 
 import com.main.pojo.TblPatient;
 import com.main.services.PatientService;
+import com.main.util.DatePicker;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author ashish
  */
 public class RegistrationPage extends javax.swing.JDialog {
-
+    DatePicker picker;
     /**
      * Creates new form RegistrationPage
      */
@@ -75,7 +76,7 @@ public class RegistrationPage extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Registration Page");
+        setTitle("REGISTRATION PAGE");
         setBackground(new java.awt.Color(0, 102, 102));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,6 +128,11 @@ public class RegistrationPage extends javax.swing.JDialog {
         txtTimeAddmission.setText(" ");
 
         txtDateAddmission.setText(" ");
+        txtDateAddmission.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDateAddmissionMouseClicked(evt);
+            }
+        });
         txtDateAddmission.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateAddmissionActionPerformed(evt);
@@ -193,9 +199,9 @@ public class RegistrationPage extends javax.swing.JDialog {
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
@@ -297,8 +303,8 @@ public class RegistrationPage extends javax.swing.JDialog {
                                 .addComponent(jLabel9)))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
 
@@ -306,17 +312,17 @@ public class RegistrationPage extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(0, 51, 102));
 
-        jLabel8.setFont(new java.awt.Font("Verdana", 2, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("REGISTRATION PAGE");
+        jLabel8.setText("PATIENT DETAIL PAGE->REGISTRATION PAGE");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -335,7 +341,7 @@ public class RegistrationPage extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -395,6 +401,12 @@ public class RegistrationPage extends javax.swing.JDialog {
     private void cmbSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSexActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSexActionPerformed
+
+    private void txtDateAddmissionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDateAddmissionMouseClicked
+        // TODO add your handling code here:
+        picker=new DatePicker(this);
+        txtDateAddmission.setText(picker.setPickedDate());
+    }//GEN-LAST:event_txtDateAddmissionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -491,7 +503,7 @@ public class RegistrationPage extends javax.swing.JDialog {
                 patient.setSpousename(txtSpouseName.getText());
                 patient.setSpouseage(txtSpouseAge.getText());
                 patient.setReference(txtReference.getText());
-                patient.setDateaddmission(new Date());
+                patient.setDateaddmission(picker.setPickedDate());
                 patient.setTimeaddmission(Float.toString(new Date().getTime()));
                 PatientService.saveEntity(patient);
                 JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY...");
