@@ -14,9 +14,6 @@ public class PatientService {
     public static Session session = null;
     public static Transaction transaction = null;
 
-    public static void main(String[] args) {
-
-    }
 
     public static boolean checkStatus() {
         try {
@@ -104,6 +101,9 @@ public class PatientService {
         List list = criteria.list();
         session.close();
         return list;
+    }
+    public static void main(String[] args) {
+
     }
 
 }

@@ -17,8 +17,8 @@ import javax.swing.table.TableModel;
 public class ViewTableModel implements TableModel {
 
     ArrayList<TblPatient> list;
-    private String columnsName[] = {"#", "Patient_ID", "First Name", "Last Name", "Mobile No", "Age", "Sex", "Address", "Reference BY", "Date Admit", "Time Admit"};
-    private Class columnsClass[] = {String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class};
+    private String columnsName[] = {"#", "Patient_ID", "First Name", "Last Name", "Mobile No", "Age", "Sex", "Address", "Spouse Name", "Spouse Age", "Date Admit", "Reference BY", "Time Admit"};
+    private Class columnsClass[] = {Integer.class,String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class,String.class};
 
     public ViewTableModel(ArrayList<TblPatient> list) {
         this.list = list;
@@ -51,31 +51,34 @@ public class ViewTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        System.out.println("rowIndex = " + rowIndex);
         TblPatient patient = list.get(rowIndex);
         switch (columnIndex) {
-            case 1:
+            case 0:
                 return rowIndex + 1;
-            case 2:
+            case 1:
                 return patient.getId();
-            case 3:
-                System.out.println("patient = " + patient.getFirstName());
+            case 2:
                 return patient.getFirstName();
-            case 4:
-                System.out.println("patient = " + patient.getLastName());
+            case 3:
                 return patient.getLastName();
-            case 5:
+            case 4:
                 return patient.getMobile();
-            case 6:
+            case 5:
                 return patient.getAge();
-            case 7:
+            case 6:
                 return patient.getSex();
-            case 8:
+            case 7:
                 return patient.getAddress();
+            case 8:
+                return patient.getSpousename();
             case 9:
-                return patient.getReference();
+                return patient.getSpouseage();
             case 10:
                 return patient.getDateaddmission();
             case 11:
+                return patient.getReference();
+            case 12:
                 return patient.getTimeaddmission();
         }
         return patient;

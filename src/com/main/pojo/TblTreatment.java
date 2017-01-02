@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated Jan 1, 2017 1:29:52 PM by Hibernate Tools 4.3.1
+// Generated Jan 2, 2017 3:34:16 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,7 +11,6 @@ public class TblTreatment  implements java.io.Serializable {
 
 
      private Integer id;
-     private String firstName;
      private Date proceduredate;
      private String procedureperform;
      private String diagnosis;
@@ -21,8 +20,7 @@ public class TblTreatment  implements java.io.Serializable {
     public TblTreatment() {
     }
 
-    public TblTreatment(String firstName, Date proceduredate, String procedureperform, String diagnosis, String summary, String comment) {
-       this.firstName = firstName;
+    public TblTreatment(Date proceduredate, String procedureperform, String diagnosis, String summary, String comment) {
        this.proceduredate = proceduredate;
        this.procedureperform = procedureperform;
        this.diagnosis = diagnosis;
@@ -36,13 +34,6 @@ public class TblTreatment  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
-    }
-    public String getFirstName() {
-        return this.firstName;
-    }
-    
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
     public Date getProceduredate() {
         return this.proceduredate;

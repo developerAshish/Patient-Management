@@ -7,7 +7,9 @@ package com.main.ui;
 
 import com.main.pojo.TblPatient;
 import com.main.services.PatientService;
-import java.sql.Time;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +27,10 @@ public class RegistrationPage extends javax.swing.JDialog {
     public RegistrationPage(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x, y);
         loadAgeCombo();
     }
 
@@ -65,6 +71,8 @@ public class RegistrationPage extends javax.swing.JDialog {
         txtAddress = new javax.swing.JTextArea();
         lblVaildationMessage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registration Page");
@@ -138,6 +146,8 @@ public class RegistrationPage extends javax.swing.JDialog {
 
         btnReset.setBackground(new java.awt.Color(0, 102, 102));
         btnReset.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(0, 51, 102));
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/reload-icon.png"))); // NOI18N
         btnReset.setText("RESET");
         btnReset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +158,8 @@ public class RegistrationPage extends javax.swing.JDialog {
 
         btnSave.setBackground(new java.awt.Color(0, 102, 102));
         btnSave.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 51, 102));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/main/icon/SAVE.png"))); // NOI18N
         btnSave.setText("SAVE");
         btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 0, true));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +239,7 @@ public class RegistrationPage extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(296, 296, 296)
                         .addComponent(lblVaildationMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,15 +304,39 @@ public class RegistrationPage extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
+        jPanel3.setBackground(new java.awt.Color(0, 51, 102));
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 2, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("REGISTRATION PAGE");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -324,35 +360,13 @@ public class RegistrationPage extends javax.swing.JDialog {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        final String PHONE_REGEX ="^[0-9, ]*$";
-        final Pattern pattern = Pattern.compile(PHONE_REGEX);
-        if (txtFName.getText().length() != 0 && txtLName.getText().length() != 0 && txtMobile.getText().length() != 0 && cmbSex.getSelectedIndex() != 0 && cmbAge.getSelectedIndex() != 0 && txtAddress.getText().length() != 0 && txtReference.getText().length() != 0 && txtDateAddmission.getText().length() != 0 && txtTimeAddmission.getText().length() != 0) {
-            Matcher matcher = pattern.matcher(txtMobile.getText());
-            if (matcher.matches()&&txtTimeAddmission.getText().length()!=0 &&txtDateAddmission.getText().length()!=0) {
-                try {
-                    TblPatient patient = new TblPatient();
-                    patient.setFirstName(txtFName.getText());
-                    patient.setLastName(txtLName.getText());
-                    patient.setMobile(txtMobile.getText());
-                    patient.setAddress(txtAddress.getText());
-                    patient.setSex(cmbSex.getSelectedItem().toString());
-                    patient.setAge(cmbAge.getSelectedItem().toString());
-                    patient.setSpousename(txtSpouseName.getText());
-                    patient.setSpouseage(txtSpouseAge.getText());
-                    patient.setReference(txtReference.getText());
-                    patient.setDateaddmission(new Date());
-                    patient.setTimeaddmission(Long.toString(new Date().getTime()));
-                    PatientService.saveEntity(patient);
-                    JOptionPane.showMessageDialog(this, " SAVE SUCCESSFULLY");
-
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, " PLEASE STARTUP DATABASE CONNECTION");
-                }
-            } else {
-                lblVaildationMessage.setText(" WRONG PHONE NUMBER ENTERED. OR DATE AND TIME NOT CORRECT");
-            }
-
+        if (txtFName.getText().length() != 0 && txtLName.getText().length() != 0 && txtMobile.getText().length() != 0 && txtAddress.getText().length() != 0 && txtSpouseName.getText().length() != 0 && cmbAge.getSelectedIndex() != 0 && cmbSex.getSelectedIndex() != 0 && txtSpouseAge.getText().length() != 0 && txtReference.getText().length() != 0 && txtDateAddmission.getText().length() != 0 && txtTimeAddmission.getText().length() != 0) {
+            validationData();
+        } else {
+            lblVaildationMessage.setForeground(Color.red);
+            lblVaildationMessage.setText("FILED BLANK");
         }
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -371,8 +385,6 @@ public class RegistrationPage extends javax.swing.JDialog {
             cmbSex.setSelectedIndex(0);
             JOptionPane.showMessageDialog(this, " RESET SUCCESSFULLY.");
             lblVaildationMessage.setText("");
-        } else {
-            JOptionPane.showMessageDialog(this, "FIELDS ALREADY BLANKS..");
         }
     }//GEN-LAST:event_btnResetActionPerformed
 
@@ -441,9 +453,11 @@ public class RegistrationPage extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblVaildationMessage;
     private javax.swing.JTextArea txtAddress;
@@ -461,5 +475,45 @@ public class RegistrationPage extends javax.swing.JDialog {
         for (int i = 1; i < 100; i++) {
             cmbAge.addItem(i);
         }
+    }
+    
+    private void validationData() {
+        Pattern matcherStringData = validationfilterStringData();
+        Matcher matcherMobile = validationfilterMobile();
+        if (matcherStringData.matcher(txtFName.getText().trim()).matches() && matcherStringData.matcher(txtFName.getText().trim()).matches() && matcherStringData.matcher(txtSpouseName.getText().trim()).matches() && matcherMobile.matches() && matcherStringData.matcher(txtReference.getText().trim()).matches()) {
+            try {
+                TblPatient patient = new TblPatient();
+                patient.setFirstName(txtFName.getText());
+                patient.setLastName(txtLName.getText());
+                patient.setMobile(txtMobile.getText());
+                patient.setAge(cmbAge.getSelectedItem().toString());
+                patient.setSex(cmbSex.getSelectedItem().toString());
+                patient.setSpousename(txtSpouseName.getText());
+                patient.setSpouseage(txtSpouseAge.getText());
+                patient.setReference(txtReference.getText());
+                patient.setDateaddmission(new Date());
+                patient.setTimeaddmission(Float.toString(new Date().getTime()));
+                PatientService.saveEntity(patient);
+                JOptionPane.showMessageDialog(this, "SAVE SUCCESSFULLY...");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "PLEASE STARTUP THE DATABASE CONNECTION.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, " WRONG DATA ENTERED.");
+        }
+    }
+    
+    private Matcher validationfilterMobile() {
+        final String PHONE_REGEX = "^[0-9, ]*$";
+        Matcher matcher = null;
+        final Pattern pattern = Pattern.compile(PHONE_REGEX);
+        matcher = pattern.matcher(txtMobile.getText().trim());
+        return matcher;
+    }
+    
+    private Pattern validationfilterStringData() {
+        final String StringData_Regex = "^[a-zA-Z]+$";
+        final Pattern pattern = Pattern.compile(StringData_Regex);
+        return pattern;
     }
 }

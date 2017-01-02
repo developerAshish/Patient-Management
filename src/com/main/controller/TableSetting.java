@@ -16,37 +16,48 @@ public class TableSetting {
             if (columnHeader.equals("#")) {
                 column.setMaxWidth(20);
                 column.setPreferredWidth(20);
-                
             }
-            if (columnHeader.equals("L.A.C")) {
+            if (columnHeader.equals("FIRST NAME")) {
                 column.setMaxWidth(50);
                 column.setPreferredWidth(50);
             }
-            if (columnHeader.equals("E.PIC")) {
+            if (columnHeader.equals("LAST NAME")) {
                 column.setMaxWidth(110);
                 column.setPreferredWidth(110);
             }
-            if (columnHeader.equals("FIRST NAME")) {
-                column.setMaxWidth(180);
-                column.setPreferredWidth(180);
-            }
-            if (columnHeader.equals("LAST NAME")) {
+            if (columnHeader.equals("MOBILE")) {
                 column.setMaxWidth(180);
                 column.setPreferredWidth(180);
             }
             if (columnHeader.equals("AGE")) {
-                column.setMaxWidth(60);
-                column.setPreferredWidth(60);
+                column.setMaxWidth(180);
+                column.setPreferredWidth(180);
             }
             if (columnHeader.equals("SEX")) {
                 column.setMaxWidth(60);
                 column.setPreferredWidth(60);
             }
-            if (columnHeader.equals("MOBILE")) {
+            if (columnHeader.equals("ADDRESS")) {
+                column.setMaxWidth(60);
+                column.setPreferredWidth(60);
+            }
+            if (columnHeader.equals("SPOUSE NAME")) {
                 column.setMaxWidth(130);
                 column.setPreferredWidth(130);
             }
-            if (columnHeader.equals("EMAIL")) {
+            if (columnHeader.equals("SPOUSE AGE")) {
+                column.setMaxWidth(150);
+                column.setPreferredWidth(150);
+            }
+            if (columnHeader.equals("REFERENCE")) {
+                column.setMaxWidth(150);
+                column.setPreferredWidth(150);
+            }
+            if (columnHeader.equals("DATE ADMIT")) {
+                column.setMaxWidth(150);
+                column.setPreferredWidth(150);
+            }
+            if (columnHeader.equals("TIME ADMIT")) {
                 column.setMaxWidth(150);
                 column.setPreferredWidth(150);
             }
